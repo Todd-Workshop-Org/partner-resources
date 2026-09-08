@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Service Dashboard</title>
+<style>
+  /* Deliberately hardcoded colors, not host CSS variables. Port's dashboard
+     theme exposes custom properties, but this guide hasn't confirmed their
+     real value format (e.g. hex string vs. bare "r, g, b" triple) against a
+     live host — using them directly risks silently-invalid CSS, which looks
+     exactly like unstyled/blank content. If you want to match host theming
+     later, verify the real values first (see the note at the end of this file). */
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #f5f7fa;
+    color: #1a1a2e;
+  }
+  .container { padding: 20px; }
+  .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 20px; }
+  .metric { background: #fff; border-radius: 8px; padding: 16px; text-align: center; border: 1px solid #e2e8f0; }
+  .metric .value { font-size: 28px; font-weight: 700; }
+  .metric .label { font-size: 12px; color: #666; margin-top: 4px; }
+  table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px; overflow: hidden; }
+  th, td { text-align: left; padding: 10px 12px; font-size: 13px; border-bottom: 1px solid #eee; color: #1a1a2e; }
+  th { color: #666; font-weight: 600; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600; }
+  .badge.healthy, .badge.resolved { background: #d1fae5; color: #065f46; }
+  .badge.degraded, .badge.warning, .badge.medium { background: #fef3c7; color: #92400e; }
+  .badge.down, .badge.critical { background: #fee2e2; color: #7f1d1d; }
+  .badge.investigating, .badge.high { background: #fee2e2; color: #7f1d1d; }
+  .badge.low { background: #f3f4f6; color: #374151; }
+  h2 { font-size: 15px; margin: 24px 0 8px; color: #1a1a2e; }
+  #status { color: #666; font-size: 13px; }
+  #status.error { color: #b91c1c; white-space: pre-wrap; font-family: monospace; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div id="status">Waiting for Port… (open devtools console to see progress)</div>
+  <div id="app" style="display:none">
+    <div class="metrics" id="metrics"></div>
+    <h2>Services</h2>
+    <table id="services-table"><thead><tr><th>Name</th><th>Status</th><th>Team</th><th>Uptime</th></tr></thead><tbody></tbody></table>
+    <h2>Incidents</h2>
+    <table id="incidents-table"><thead><tr><th>Title</th><th>Severity</th><th>Status</th></tr></thead><tbody></tbody></table>
+  </div>
+</div>
+
+<script>
+  // --- Host protocol: request a token, wait for PLUGIN_DATA + PORT_TOKEN ---
+  let portToken = null;
+  let portApiBaseUrl = null;
+  let loaded = false;
+
+  function setStatus(text, isError) {
+    const el = document.getElementById('status');
+    el.textContent = text;
+    el.className = isError ? 'error' : '';
+  }
+
+  window.addEventListener('message', (event) => {
+    const msg = event.data;
+    if (!msg || !msg.type) return;
+
+    console.log('[plugin] received message:', msg.type, msg);
+
+    if (msg.type === 'PORT_TOKEN') {
+      portToken = msg.token;
+    }
+    if (msg.type === 'PLUGIN_DATA') {
+      portApiBaseUrl = msg.baseUrl;
+      // msg.params, msg.page, msg.user, msg.entity, msg.theme also available here
+    }
+    if (portToken && portApiBaseUrl && !loaded) {
+      loadDashboard();
+    }
+  });
+
+  console.log('[plugin] requesting token from host');
+  window.parent.postMessage({ type: 'REQUEST_PORT_TOKEN' }, '*');
+
+  // If nothing arrives at all, say so explicitly instead of hanging silently —
+  // this fires only if we're not inside a real Port iframe, or the host never responded.
+  setTimeout(() => {
+    if (!loaded) {
+      setStatus(
+        'No response from host after 8s.\nIf you opened this file directly in a browser, that\'s expected — test it on a real dashboard.\nIf this IS a dashboard, check the browser console for postMessage errors.',
+        true
+      );
+    }
+  }, 8000);
+
+  async function fetchEntities(blueprint) {
+    const url = `${portApiBaseUrl}/v1/blueprints/${blueprint}/entities`;
+    console.log('[plugin] fetching', url);
+    const res = await fetch(url, {
+      headers: { Authorization: `Bearer ${portToken}` }
+    });
+    if (!res.ok) {
+      const body = await res.text();
+      throw new Error(`GET ${url} -> ${res.status}\n${body}`);
+    }
+    const data = await res.json();
+    console.log(`[plugin] raw response for ${blueprint}:`, data);
+
+    if (!Array.isArray(data.entities)) {
+      throw new Error(
+        `Expected an "entities" array in the response for ${blueprint}, got: ${JSON.stringify(data).slice(0, 300)}`
+      );
+    }
+    return data.entities;
+  }
+
+  async function loadDashboard() {
+    if (loaded) return;
+    loaded = true;
+
+    setStatus('Loading…');
+
+    try {
+      const [services, incidents] = await Promise.all([
+        fetchEntities('service'),
+        fetchEntities('incident')
+      ]);
+
+      console.log(`[plugin] loaded ${services.length} services, ${incidents.length} incidents`);
+
+      document.getElementById('status').style.display = 'none';
+      document.getElementById('app').style.display = 'block';
+      renderMetrics(services, incidents);
+      renderServices(services);
+      renderIncidents(incidents);
+    } catch (err) {
+      console.error('[plugin] load failed:', err);
+      setStatus('Error:\n' + err.message, true);
+    }
+  }
+
+  // Port's plugin-hosting CDN enforces a Trusted Types CSP, which blocks
+  // assigning HTML strings to .innerHTML. So every element below is built
+  // with createElement/textContent instead of template-string HTML — that's
+  // not a Trusted Types sink, so it works whether or not the policy is active.
+
+  function clearChildren(el) {
+    while (el.firstChild) el.removeChild(el.firstChild);
+  }
+
+  function makeBadge(text) {
+    const span = document.createElement('span');
+    span.className = 'badge ' + text;
+    span.textContent = text;
+    return span;
+  }
+
+  function emptyRow(colspan, message) {
+    const tr = document.createElement('tr');
+    const td = document.createElement('td');
+    td.colSpan = colspan;
+    td.style.color = '#999';
+    td.textContent = message;
+    tr.appendChild(td);
+    return tr;
+  }
+
+  function renderMetrics(services, incidents) {
+    const healthy = services.filter(s => s.properties && s.properties.status === 'healthy').length;
+    const critical = incidents.filter(i => i.properties && i.properties.severity === 'critical').length;
+
+    const metricsEl = document.getElementById('metrics');
+    clearChildren(metricsEl);
+
+    [
+      { value: services.length, label: 'Services' },
+      { value: healthy, label: 'Healthy' },
+      { value: incidents.length, label: 'Incidents' },
+      { value: critical, label: 'Critical' }
+    ].forEach(item => {
+      const metric = document.createElement('div');
+      metric.className = 'metric';
+
+      const value = document.createElement('div');
+      value.className = 'value';
+      value.textContent = item.value;
+
+      const label = document.createElement('div');
+      label.className = 'label';
+      label.textContent = item.label;
+
+      metric.appendChild(value);
+      metric.appendChild(label);
+      metricsEl.appendChild(metric);
+    });
+  }
+
+  function renderServices(services) {
+    const tbody = document.querySelector('#services-table tbody');
+    clearChildren(tbody);
+
+    if (services.length === 0) {
+      tbody.appendChild(emptyRow(4, 'No services found — check that the earlier Ocean integration steps actually synced data.'));
+      return;
+    }
+
+    services.forEach(s => {
+      const tr = document.createElement('tr');
+
+      const nameTd = document.createElement('td');
+      nameTd.textContent = s.title || s.identifier;
+
+      const statusTd = document.createElement('td');
+      statusTd.appendChild(makeBadge(s.properties.status));
+
+      const teamTd = document.createElement('td');
+      teamTd.textContent = s.properties.team || '';
+
+      const uptimeTd = document.createElement('td');
+      uptimeTd.textContent = (s.properties.uptime || 0).toFixed(2) + '%';
+
+      tr.appendChild(nameTd);
+      tr.appendChild(statusTd);
+      tr.appendChild(teamTd);
+      tr.appendChild(uptimeTd);
+      tbody.appendChild(tr);
+    });
+  }
+
+  function renderIncidents(incidents) {
+    const tbody = document.querySelector('#incidents-table tbody');
+    clearChildren(tbody);
+
+    if (incidents.length === 0) {
+      tbody.appendChild(emptyRow(3, 'No incidents found — check that the earlier Ocean integration steps actually synced data.'));
+      return;
+    }
+
+    incidents.forEach(i => {
+      const tr = document.createElement('tr');
+
+      const titleTd = document.createElement('td');
+      titleTd.textContent = i.title || i.identifier;
+
+      const severityTd = document.createElement('td');
+      severityTd.appendChild(makeBadge(i.properties.severity));
+
+      const statusTd = document.createElement('td');
+      statusTd.appendChild(makeBadge(i.properties.status));
+
+      tr.appendChild(titleTd);
+      tr.appendChild(severityTd);
+      tr.appendChild(statusTd);
+      tbody.appendChild(tr);
+    });
+  }
+</script>
+</body>
+</html>

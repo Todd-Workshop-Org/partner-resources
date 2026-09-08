@@ -1,0 +1,98 @@
+---
+# Namespace
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: integrations
+
+---
+# Mock Service Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mock-integration
+  namespace: integrations
+  labels:
+    app: mock-integration
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mock-integration
+  template:
+    metadata:
+      labels:
+        app: mock-integration
+    spec:
+      containers:
+      - name: mock-integration
+        image: port-mock-integration:latest
+        imagePullPolicy: Never  # Use local image for workshop
+        ports:
+        - containerPort: 5000
+          name: http
+        env:
+        - name: PORT
+          value: "5000"
+        - name: SERVICE_NAME
+          value: "Port Mock Integration"
+        - name: ENVIRONMENT
+          value: "production"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 5000
+          initialDelaySeconds: 10
+          periodSeconds: 30
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 5000
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 500m
+            memory: 512Mi
+
+---
+# Mock Service ClusterIP Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: mock-integration
+  namespace: integrations
+  labels:
+    app: mock-integration
+spec:
+  type: ClusterIP
+  ports:
+  - port: 5000
+    targetPort: 5000
+    protocol: TCP
+    name: http
+  selector:
+    app: mock-integration
+
+---
+# Optional: NodePort for local testing
+apiVersion: v1
+kind: Service
+metadata:
+  name: mock-integration-nodeport
+  namespace: integrations
+  labels:
+    app: mock-integration
+spec:
+  type: NodePort
+  ports:
+  - port: 5000
+    targetPort: 5000
+    nodePort: 30500
+    protocol: TCP
+    name: http
+  selector:
+    app: mock-integration
