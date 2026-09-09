@@ -17,7 +17,7 @@ This is the self-guided version of Port's internal intro workshop, adapted for p
 
 ## Prerequisites
 
-- [ ] A Port account (workshop credentials will have been shared with you separately) — Settings → API to find/generate a **Client ID** and **Client Secret**
+- [ ] A Port account — Settings → API to find/generate a **Client ID** and **Client Secret**
 - [ ] `curl` and [`jq`](https://jqlang.org/download/) installed locally (used by the completion script; `curl` also useful for exploring the API directly if you want to)
 - [ ] A modern browser, logged into your Port account
 
@@ -33,8 +33,6 @@ If your Port account is on the **US** region rather than the default EU one, als
 ```bash
 export PORT_API_BASE_URL="https://api.us.port.io"
 ```
-
-(Check with whoever gave you the workshop credentials if you're not sure which region you're on.)
 
 ---
 
