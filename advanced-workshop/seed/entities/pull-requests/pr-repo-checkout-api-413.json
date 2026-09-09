@@ -1,0 +1,16 @@
+{
+  "identifier": "pr-repo-checkout-api-413",
+  "title": "Add idempotency guard on payment confirmation",
+  "properties": {
+    "status": "merged",
+    "closedAt": "2026-04-22T10:52:54Z",
+    "updatedAt": "2026-04-22T10:02:54Z",
+    "mergedAt": "2026-04-22T12:17:54Z",
+    "createdAt": "2026-04-22T09:12:54Z",
+    "link": "https://github.com/retailnova/repo-checkout-api/pull/413",
+    "prNumber": 413
+  },
+  "relations": {
+    "repository": "repo-checkout-api"
+  }
+}

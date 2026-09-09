@@ -1,0 +1,48 @@
+{
+    "identifier": "repository",
+    "title": "Repository",
+    "icon": "Github",
+    "ownership": {
+      "type": "Direct"
+    },
+    "schema": {
+      "properties": {
+        "readme": {
+          "title": "README",
+          "type": "string",
+          "format": "markdown"
+        },
+        "url": {
+          "icon": "DefaultProperty",
+          "title": "Repository URL",
+          "type": "string",
+          "format": "url"
+        },
+        "defaultBranch": {
+          "title": "Default branch",
+          "type": "string"
+        },
+        "last_contributor": {
+          "title": "Last contributor",
+          "icon": "TwoUsers",
+          "type": "string",
+          "format": "user"
+        },
+        "last_push": {
+          "icon": "GitPullRequest",
+          "title": "Last push",
+          "description": "Last commit to the main branch",
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": []
+    },
+    "mirrorProperties": {},
+    "calculationProperties": {},
+    "aggregationProperties": {
+      
+    },
+    "relations": {
+    }
+  }

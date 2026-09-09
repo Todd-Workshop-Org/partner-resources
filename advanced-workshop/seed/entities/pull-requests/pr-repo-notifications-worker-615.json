@@ -1,0 +1,16 @@
+{
+  "identifier": "pr-repo-notifications-worker-615",
+  "title": "Add backoff jitter to push notification retries",
+  "properties": {
+    "status": "merged",
+    "closedAt": "2026-04-22T12:50:54Z",
+    "updatedAt": "2026-04-22T12:00:54Z",
+    "mergedAt": "2026-04-22T14:15:54Z",
+    "createdAt": "2026-04-22T11:10:54Z",
+    "link": "https://github.com/retailnova/repo-notifications-worker/pull/615",
+    "prNumber": 615
+  },
+  "relations": {
+    "repository": "repo-notifications-worker"
+  }
+}

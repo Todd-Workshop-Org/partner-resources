@@ -1,0 +1,16 @@
+{
+  "identifier": "pr-repo-checkout-api-411",
+  "title": "Improve 3DS retry flow for declined cards",
+  "properties": {
+    "status": "merged",
+    "closedAt": "2026-04-22T06:54:54Z",
+    "updatedAt": "2026-04-22T06:04:54Z",
+    "mergedAt": "2026-04-22T08:19:54Z",
+    "createdAt": "2026-04-22T05:14:54Z",
+    "link": "https://github.com/retailnova/repo-checkout-api/pull/411",
+    "prNumber": 411
+  },
+  "relations": {
+    "repository": "repo-checkout-api"
+  }
+}

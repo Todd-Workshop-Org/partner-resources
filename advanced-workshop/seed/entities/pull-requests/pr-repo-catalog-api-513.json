@@ -1,0 +1,16 @@
+{
+  "identifier": "pr-repo-catalog-api-513",
+  "title": "Add cache warming job for top collections",
+  "properties": {
+    "status": "merged",
+    "closedAt": "2026-04-22T09:52:54Z",
+    "updatedAt": "2026-04-22T09:02:54Z",
+    "mergedAt": "2026-04-22T11:17:54Z",
+    "createdAt": "2026-04-22T08:12:54Z",
+    "link": "https://github.com/retailnova/repo-catalog-api/pull/513",
+    "prNumber": 513
+  },
+  "relations": {
+    "repository": "repo-catalog-api"
+  }
+}

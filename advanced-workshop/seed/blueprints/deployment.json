@@ -1,0 +1,63 @@
+{
+  "identifier": "deployment",
+  "title": "Deployment",
+  "icon": "Rocket",
+  "schema": {
+    "properties": {
+      "environment": {
+        "icon": "DefaultProperty",
+        "title": "Environment",
+        "description": "The environment where the deployment occurred.",
+        "type": "string",
+        "enum": [
+          "Production",
+          "Staging",
+          "Testing"
+        ],
+        "enumColors": {
+          "Production": "pink",
+          "Staging": "gold",
+          "Testing": "olive"
+        }
+      },
+      "createdAt": {
+        "title": "Deployment Time",
+        "type": "string",
+        "format": "date-time",
+        "description": "The timestamp when the deployment was triggered."
+      },
+      "deploymentStatus": {
+        "icon": "DefaultProperty",
+        "title": "Deployment Status",
+        "description": "Indicates whether the deployment was successful or failed.",
+        "type": "string",
+        "enum": [
+          "Success",
+          "Failed"
+        ],
+        "enumColors": {
+          "Success": "lime",
+          "Failed": "bronze"
+        }
+      }
+    },
+    "required": []
+  },
+  "mirrorProperties": {},
+  "calculationProperties": {},
+  "aggregationProperties": {},
+  "relations": {
+    "pullRequest": {
+      "title": "Pull Request",
+      "target": "pullRequest",
+      "required": false,
+      "many": false
+    },
+    "service": {
+      "title": "Service",
+      "target": "service",
+      "required": false,
+      "many": false
+    }
+  }
+}

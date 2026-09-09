@@ -1,0 +1,16 @@
+{
+  "identifier": "pr-repo-checkout-api-419",
+  "title": "Increase payment gateway timeout for peak traffic",
+  "properties": {
+    "status": "merged",
+    "closedAt": "2026-04-22T22:46:54Z",
+    "updatedAt": "2026-04-22T21:56:54Z",
+    "mergedAt": "2026-04-23T00:11:54Z",
+    "createdAt": "2026-04-22T21:06:54Z",
+    "link": "https://github.com/retailnova/repo-checkout-api/pull/419",
+    "prNumber": 419
+  },
+  "relations": {
+    "repository": "repo-checkout-api"
+  }
+}

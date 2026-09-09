@@ -1,0 +1,16 @@
+{
+  "identifier": "pr-repo-catalog-api-516",
+  "title": "Improve category tree diff performance",
+  "properties": {
+    "status": "merged",
+    "closedAt": "2026-04-22T15:49:54Z",
+    "updatedAt": "2026-04-22T14:59:54Z",
+    "mergedAt": "2026-04-22T16:14:54Z",
+    "createdAt": "2026-04-22T14:09:54Z",
+    "link": "https://github.com/retailnova/repo-catalog-api/pull/516",
+    "prNumber": 516
+  },
+  "relations": {
+    "repository": "repo-catalog-api"
+  }
+}

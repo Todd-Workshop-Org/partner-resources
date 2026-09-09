@@ -1,0 +1,16 @@
+{
+  "identifier": "pr-repo-checkout-api-417",
+  "title": "Refactor cart snapshot serializer for lower latency",
+  "properties": {
+    "status": "merged",
+    "closedAt": "2026-04-22T18:48:54Z",
+    "updatedAt": "2026-04-22T17:58:54Z",
+    "mergedAt": "2026-04-22T20:13:54Z",
+    "createdAt": "2026-04-22T17:08:54Z",
+    "link": "https://github.com/retailnova/repo-checkout-api/pull/417",
+    "prNumber": 417
+  },
+  "relations": {
+    "repository": "repo-checkout-api"
+  }
+}

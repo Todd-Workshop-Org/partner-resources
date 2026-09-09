@@ -1,0 +1,16 @@
+{
+  "identifier": "pr-repo-catalog-api-511",
+  "title": "Optimize product search facet aggregation",
+  "properties": {
+    "status": "merged",
+    "closedAt": "2026-04-22T05:54:54Z",
+    "updatedAt": "2026-04-22T05:04:54Z",
+    "mergedAt": "2026-04-22T07:19:54Z",
+    "createdAt": "2026-04-22T04:14:54Z",
+    "link": "https://github.com/retailnova/repo-catalog-api/pull/511",
+    "prNumber": 511
+  },
+  "relations": {
+    "repository": "repo-catalog-api"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "identifier": "pr-repo-catalog-api-512",
+  "title": "Fix locale fallback for missing product copy",
+  "properties": {
+    "status": "merged",
+    "closedAt": "2026-04-22T07:53:54Z",
+    "updatedAt": "2026-04-22T07:03:54Z",
+    "mergedAt": "2026-04-22T08:18:54Z",
+    "createdAt": "2026-04-22T06:13:54Z",
+    "link": "https://github.com/retailnova/repo-catalog-api/pull/512",
+    "prNumber": 512
+  },
+  "relations": {
+    "repository": "repo-catalog-api"
+  }
+}

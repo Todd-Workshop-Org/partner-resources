@@ -1,0 +1,13 @@
+{
+  "identifier": "dep-svc-notifications-worker-20260424-05",
+  "title": "Notifications Worker deploy #5",
+  "properties": {
+    "environment": "Testing",
+    "createdAt": "2026-04-23T00:58:54Z",
+    "deploymentStatus": "Success"
+  },
+  "relations": {
+    "pullRequest": "pr-repo-notifications-worker-615",
+    "service": "svc-notifications-worker"
+  }
+}

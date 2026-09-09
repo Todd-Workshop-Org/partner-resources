@@ -1,0 +1,16 @@
+{
+  "identifier": "pr-repo-catalog-api-514",
+  "title": "Normalize variant dimensions before indexing",
+  "properties": {
+    "status": "closed",
+    "closedAt": "2026-04-22T11:51:54Z",
+    "updatedAt": "2026-04-22T11:01:54Z",
+    "mergedAt": "2026-04-22T12:11:54Z",
+    "createdAt": "2026-04-22T10:11:54Z",
+    "link": "https://github.com/retailnova/repo-catalog-api/pull/514",
+    "prNumber": 514
+  },
+  "relations": {
+    "repository": "repo-catalog-api"
+  }
+}

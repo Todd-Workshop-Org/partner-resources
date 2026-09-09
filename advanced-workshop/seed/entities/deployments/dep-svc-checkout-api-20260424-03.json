@@ -1,0 +1,13 @@
+{
+  "identifier": "dep-svc-checkout-api-20260424-03",
+  "title": "Checkout API deploy #3",
+  "properties": {
+    "environment": "Production",
+    "createdAt": "2026-04-22T17:04:54Z",
+    "deploymentStatus": "Failed"
+  },
+  "relations": {
+    "pullRequest": "pr-repo-checkout-api-413",
+    "service": "svc-checkout-api"
+  }
+}

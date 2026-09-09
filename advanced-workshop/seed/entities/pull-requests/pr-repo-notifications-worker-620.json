@@ -1,0 +1,16 @@
+{
+  "identifier": "pr-repo-notifications-worker-620",
+  "title": "Reduce memory footprint of batch dispatcher",
+  "properties": {
+    "status": "merged",
+    "closedAt": "2026-04-22T22:45:54Z",
+    "updatedAt": "2026-04-22T21:55:54Z",
+    "mergedAt": "2026-04-22T23:10:54Z",
+    "createdAt": "2026-04-22T21:05:54Z",
+    "link": "https://github.com/retailnova/repo-notifications-worker/pull/620",
+    "prNumber": 620
+  },
+  "relations": {
+    "repository": "repo-notifications-worker"
+  }
+}

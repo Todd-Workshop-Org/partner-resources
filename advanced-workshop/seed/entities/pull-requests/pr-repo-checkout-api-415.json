@@ -1,0 +1,16 @@
+{
+  "identifier": "pr-repo-checkout-api-415",
+  "title": "Reduce Redis lock contention in checkout sessions",
+  "properties": {
+    "status": "merged",
+    "closedAt": "2026-04-22T14:50:54Z",
+    "updatedAt": "2026-04-22T14:00:54Z",
+    "mergedAt": "2026-04-22T16:15:54Z",
+    "createdAt": "2026-04-22T13:10:54Z",
+    "link": "https://github.com/retailnova/repo-checkout-api/pull/415",
+    "prNumber": 415
+  },
+  "relations": {
+    "repository": "repo-checkout-api"
+  }
+}

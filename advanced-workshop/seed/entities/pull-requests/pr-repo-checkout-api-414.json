@@ -1,0 +1,16 @@
+{
+  "identifier": "pr-repo-checkout-api-414",
+  "title": "Harden webhook signature validation",
+  "properties": {
+    "status": "closed",
+    "closedAt": "2026-04-22T12:51:54Z",
+    "updatedAt": "2026-04-22T12:01:54Z",
+    "mergedAt": "2026-04-22T13:11:54Z",
+    "createdAt": "2026-04-22T11:11:54Z",
+    "link": "https://github.com/retailnova/repo-checkout-api/pull/414",
+    "prNumber": 414
+  },
+  "relations": {
+    "repository": "repo-checkout-api"
+  }
+}

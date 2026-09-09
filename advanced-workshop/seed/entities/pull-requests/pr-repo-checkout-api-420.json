@@ -1,0 +1,16 @@
+{
+  "identifier": "pr-repo-checkout-api-420",
+  "title": "Add integration tests for split shipments",
+  "properties": {
+    "status": "merged",
+    "closedAt": "2026-04-23T00:45:54Z",
+    "updatedAt": "2026-04-22T23:55:54Z",
+    "mergedAt": "2026-04-23T01:10:54Z",
+    "createdAt": "2026-04-22T23:05:54Z",
+    "link": "https://github.com/retailnova/repo-checkout-api/pull/420",
+    "prNumber": 420
+  },
+  "relations": {
+    "repository": "repo-checkout-api"
+  }
+}

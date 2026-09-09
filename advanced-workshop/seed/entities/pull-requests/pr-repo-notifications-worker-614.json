@@ -1,0 +1,16 @@
+{
+  "identifier": "pr-repo-notifications-worker-614",
+  "title": "Prevent duplicate order-confirmation sends",
+  "properties": {
+    "status": "closed",
+    "closedAt": "2026-04-22T10:51:54Z",
+    "updatedAt": "2026-04-22T10:01:54Z",
+    "mergedAt": "2026-04-22T11:11:54Z",
+    "createdAt": "2026-04-22T09:11:54Z",
+    "link": "https://github.com/retailnova/repo-notifications-worker/pull/614",
+    "prNumber": 614
+  },
+  "relations": {
+    "repository": "repo-notifications-worker"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "identifier": "pr-repo-catalog-api-519",
+  "title": "Add contract tests for recommendation endpoint",
+  "properties": {
+    "status": "merged",
+    "closedAt": "2026-04-22T21:46:54Z",
+    "updatedAt": "2026-04-22T20:56:54Z",
+    "mergedAt": "2026-04-22T23:11:54Z",
+    "createdAt": "2026-04-22T20:06:54Z",
+    "link": "https://github.com/retailnova/repo-catalog-api/pull/519",
+    "prNumber": 519
+  },
+  "relations": {
+    "repository": "repo-catalog-api"
+  }
+}

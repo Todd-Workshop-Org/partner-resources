@@ -1,0 +1,16 @@
+{
+  "identifier": "pr-repo-checkout-api-416",
+  "title": "Add feature flag for one-click wallet fallback",
+  "properties": {
+    "status": "merged",
+    "closedAt": "2026-04-22T16:49:54Z",
+    "updatedAt": "2026-04-22T15:59:54Z",
+    "mergedAt": "2026-04-22T17:14:54Z",
+    "createdAt": "2026-04-22T15:09:54Z",
+    "link": "https://github.com/retailnova/repo-checkout-api/pull/416",
+    "prNumber": 416
+  },
+  "relations": {
+    "repository": "repo-checkout-api"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "identifier": "repo-checkout-api",
+  "title": "Checkout API Repository",
+  "properties": {
+    "readme": "# Checkout API\\n\\nServicio de ecommerce para el dominio de checkout.\\n\\n## Responsabilidades\\n- Exponer endpoints internos para operaciones del dominio\\n- Publicar metricas y trazas para observabilidad\\n- Mantener compatibilidad con contratos de integracion\\n",
+    "url": "https://github.com/retailnova/repo-checkout-api",
+    "defaultBranch": "main",
+    "last_contributor": "ana.romero",
+    "last_push": "2026-04-23T22:18:54Z"
+  },
+  "relations": {}
+}

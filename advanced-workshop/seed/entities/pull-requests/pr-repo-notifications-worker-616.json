@@ -1,0 +1,16 @@
+{
+  "identifier": "pr-repo-notifications-worker-616",
+  "title": "Refactor campaign scheduler to reduce drift",
+  "properties": {
+    "status": "merged",
+    "closedAt": "2026-04-22T14:49:54Z",
+    "updatedAt": "2026-04-22T13:59:54Z",
+    "mergedAt": "2026-04-22T15:14:54Z",
+    "createdAt": "2026-04-22T13:09:54Z",
+    "link": "https://github.com/retailnova/repo-notifications-worker/pull/616",
+    "prNumber": 616
+  },
+  "relations": {
+    "repository": "repo-notifications-worker"
+  }
+}

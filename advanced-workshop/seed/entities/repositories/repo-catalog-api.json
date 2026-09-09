@@ -1,0 +1,12 @@
+{
+  "identifier": "repo-catalog-api",
+  "title": "Catalog API Repository",
+  "properties": {
+    "readme": "# Catalog API\\n\\nServicio de ecommerce para el dominio de catalog.\\n\\n## Responsabilidades\\n- Exponer endpoints internos para operaciones del dominio\\n- Publicar metricas y trazas para observabilidad\\n- Mantener compatibilidad con contratos de integracion\\n",
+    "url": "https://github.com/retailnova/repo-catalog-api",
+    "defaultBranch": "main",
+    "last_contributor": "marcos.vega",
+    "last_push": "2026-04-23T19:11:54Z"
+  },
+  "relations": {}
+}

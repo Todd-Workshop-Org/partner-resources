@@ -1,0 +1,16 @@
+{
+  "identifier": "pr-repo-notifications-worker-619",
+  "title": "Add smoke tests for transactional templates",
+  "properties": {
+    "status": "merged",
+    "closedAt": "2026-04-22T20:46:54Z",
+    "updatedAt": "2026-04-22T19:56:54Z",
+    "mergedAt": "2026-04-22T22:11:54Z",
+    "createdAt": "2026-04-22T19:06:54Z",
+    "link": "https://github.com/retailnova/repo-notifications-worker/pull/619",
+    "prNumber": 619
+  },
+  "relations": {
+    "repository": "repo-notifications-worker"
+  }
+}

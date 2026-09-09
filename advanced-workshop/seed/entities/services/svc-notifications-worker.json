@@ -1,0 +1,10 @@
+{
+  "identifier": "svc-notifications-worker",
+  "title": "Notifications Worker",
+  "properties": {
+    "tier": "Tier 3"
+  },
+  "relations": {
+    "repo": "repo-notifications-worker"
+  }
+}

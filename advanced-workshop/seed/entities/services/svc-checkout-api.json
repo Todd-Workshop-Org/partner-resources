@@ -1,0 +1,10 @@
+{
+  "identifier": "svc-checkout-api",
+  "title": "Checkout API",
+  "properties": {
+    "tier": "Tier 1"
+  },
+  "relations": {
+    "repo": "repo-checkout-api"
+  }
+}

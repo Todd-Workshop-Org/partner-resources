@@ -1,0 +1,68 @@
+{
+    "identifier": "create_workflow_incident",
+    "title": "Create Workflow Incident",
+    "icon": "Alert",
+    "trigger": {
+      "type": "self-service",
+      "operation": "CREATE",
+      "userInputs": {
+        "properties": {
+          "choose_type": {
+            "icon": "DefaultProperty",
+            "title": "Choose Type",
+            "type": "string",
+            "enum": [
+              "500 Error",
+              "OOM"
+            ],
+            "enumColors": {
+              "500 Error": "lightGray",
+              "OOM": "lightGray"
+            }
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          }, 
+          "impacted_service": {
+            "title": "Impacted Service",
+            "type": "string",
+            "blueprint": "service",
+            "sort": {
+              "property": "$title",
+              "order": "ASC"
+            },
+            "format": "entity"
+          }
+        },
+        "required": [
+          "impacted_service",
+
+          "choose_type",
+          "title"        ],
+        "order": [
+          "choose_type",
+          "title",
+          "impacted_service"
+        ]
+      },
+      "blueprintIdentifier": "incident"
+    },
+    "invocationMethod": {
+      "type": "UPSERT_ENTITY",
+      "blueprintIdentifier": "incident",
+      "mapping": {
+        "title": "{{.inputs.title}}",
+        "properties": {
+          "status": "triggered",
+          "event_type": "{{.inputs.choose_type}}",
+          "triggered_at": "{{ now | todate }}"
+        },
+        "relations": {
+          "affected_service": "{{.inputs.impacted_service.identifier}}"
+        }
+      }
+    },
+    "requiredApproval": false,
+    "allowAnyoneToViewRuns": true
+  }

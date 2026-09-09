@@ -1,0 +1,66 @@
+{
+  "identifier": "pullRequest",
+  "title": "Pull Request",
+  "icon": "Github",
+  "ownership": {
+    "type": "Direct"
+  },
+  "schema": {
+    "properties": {
+      "status": {
+        "title": "Status",
+        "type": "string",
+        "enum": [
+          "merged",
+          "open",
+          "closed"
+        ],
+        "enumColors": {
+          "merged": "purple",
+          "open": "green",
+          "closed": "red"
+        }
+      },
+      "closedAt": {
+        "title": "Closed at",
+        "type": "string",
+        "format": "date-time"
+      },
+      "updatedAt": {
+        "title": "Updated at",
+        "type": "string",
+        "format": "date-time"
+      },
+      "mergedAt": {
+        "title": "Merged at",
+        "type": "string",
+        "format": "date-time"
+      },
+      "createdAt": {
+        "title": "Created at",
+        "type": "string",
+        "format": "date-time"
+      },
+      "link": {
+        "format": "url",
+        "type": "string",
+        "title": "Link"
+      },
+      "prNumber": {
+        "type": "number",
+        "title": "PR number"
+      }
+    },
+    "required": []
+  },
+  "mirrorProperties": {},
+  "aggregationProperties": {},
+  "relations": {
+    "repository": {
+      "title": "Repository",
+      "target": "repository",
+      "required": false,
+      "many": false
+    }
+  }
+}

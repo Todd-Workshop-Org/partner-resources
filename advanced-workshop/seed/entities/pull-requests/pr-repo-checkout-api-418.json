@@ -1,0 +1,16 @@
+{
+  "identifier": "pr-repo-checkout-api-418",
+  "title": "Fix stale promotion cache invalidation",
+  "properties": {
+    "status": "closed",
+    "closedAt": "2026-04-22T20:47:54Z",
+    "updatedAt": "2026-04-22T19:57:54Z",
+    "mergedAt": "2026-04-22T21:07:54Z",
+    "createdAt": "2026-04-22T19:07:54Z",
+    "link": "https://github.com/retailnova/repo-checkout-api/pull/418",
+    "prNumber": 418
+  },
+  "relations": {
+    "repository": "repo-checkout-api"
+  }
+}

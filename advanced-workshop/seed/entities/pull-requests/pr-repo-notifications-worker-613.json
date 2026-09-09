@@ -1,0 +1,16 @@
+{
+  "identifier": "pr-repo-notifications-worker-613",
+  "title": "Improve template rendering for localized currencies",
+  "properties": {
+    "status": "merged",
+    "closedAt": "2026-04-22T08:52:54Z",
+    "updatedAt": "2026-04-22T08:02:54Z",
+    "mergedAt": "2026-04-22T10:17:54Z",
+    "createdAt": "2026-04-22T07:12:54Z",
+    "link": "https://github.com/retailnova/repo-notifications-worker/pull/613",
+    "prNumber": 613
+  },
+  "relations": {
+    "repository": "repo-notifications-worker"
+  }
+}

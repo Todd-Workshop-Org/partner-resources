@@ -1,0 +1,16 @@
+{
+  "identifier": "pr-repo-notifications-worker-612",
+  "title": "Fix SMS provider failover on rate limits",
+  "properties": {
+    "status": "merged",
+    "closedAt": "2026-04-22T06:53:54Z",
+    "updatedAt": "2026-04-22T06:03:54Z",
+    "mergedAt": "2026-04-22T07:18:54Z",
+    "createdAt": "2026-04-22T05:13:54Z",
+    "link": "https://github.com/retailnova/repo-notifications-worker/pull/612",
+    "prNumber": 612
+  },
+  "relations": {
+    "repository": "repo-notifications-worker"
+  }
+}

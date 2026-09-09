@@ -1,0 +1,35 @@
+{
+    "identifier": "service",
+    "title": "Services",
+    "icon": "Microservice",
+    "schema": {
+      "properties": {
+        "tier": {
+        "type": "string",
+        "title": "Tier",
+        "enum": [
+          "Tier 1",
+          "Tier 2",
+          "Tier 3"
+        ],
+        "enumColors": {
+          "Tier 1": "gold",
+          "Tier 2": "darkGray",
+          "Tier 3": "bronze"
+        }
+      }
+      },
+      "required": []
+    },
+    "mirrorProperties": {},
+    "calculationProperties": {},
+    "aggregationProperties": {},
+    "relations": {
+      "repo": {
+        "title": "Respository",
+        "target": "repository",
+        "required": false,
+        "many": false
+      }
+    }
+  }

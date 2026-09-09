@@ -1,0 +1,16 @@
+{
+  "identifier": "pr-repo-catalog-api-520",
+  "title": "Upgrade Elasticsearch client and mappings",
+  "properties": {
+    "status": "merged",
+    "closedAt": "2026-04-22T23:45:54Z",
+    "updatedAt": "2026-04-22T22:55:54Z",
+    "mergedAt": "2026-04-23T00:10:54Z",
+    "createdAt": "2026-04-22T22:05:54Z",
+    "link": "https://github.com/retailnova/repo-catalog-api/pull/520",
+    "prNumber": 520
+  },
+  "relations": {
+    "repository": "repo-catalog-api"
+  }
+}

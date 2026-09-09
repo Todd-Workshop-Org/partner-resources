@@ -1,0 +1,12 @@
+{
+  "identifier": "repo-notifications-worker",
+  "title": "Notifications Worker Repository",
+  "properties": {
+    "readme": "# Notifications Worker\\n\\nServicio de ecommerce para el dominio de messaging.\\n\\n## Responsabilidades\\n- Exponer endpoints internos para operaciones del dominio\\n- Publicar metricas y trazas para observabilidad\\n- Mantener compatibilidad con contratos de integracion\\n",
+    "url": "https://github.com/retailnova/repo-notifications-worker",
+    "defaultBranch": "main",
+    "last_contributor": "lucia.paredes",
+    "last_push": "2026-04-23T16:04:54Z"
+  },
+  "relations": {}
+}

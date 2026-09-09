@@ -1,0 +1,10 @@
+{
+  "identifier": "svc-catalog-api",
+  "title": "Catalog API",
+  "properties": {
+    "tier": "Tier 2"
+  },
+  "relations": {
+    "repo": "repo-catalog-api"
+  }
+}

@@ -1,0 +1,95 @@
+{
+    "identifier": "incident",
+    "title": "Incident",
+    "icon": "Alert",
+    "schema": {
+      "properties": {
+        "status": {
+          "icon": "DefaultProperty",
+          "title": "Status",
+          "type": "string",
+          "default": "triggered",
+          "enum": [
+            "triggered",
+            "acknowledged",
+            "investigating",
+            "remediating",
+            "monitoring",
+            "resolved"
+          ],
+          "enumColors": {
+            "triggered": "red",
+            "acknowledged": "orange",
+            "investigating": "yellow",
+            "remediating": "purple",
+            "monitoring": "blue",
+            "resolved": "green"
+          }
+        },
+        "resolved_at": {
+          "title": "Resolved At",
+          "type": "string",
+          "format": "date-time"
+        },
+        "severity": {
+          "title": "Severity",
+          "type": "string",
+          "enum": [
+            "SEV1",
+            "SEV2",
+            "SEV3"
+          ],
+          "enumColors": {
+            "SEV1": "red",
+            "SEV2": "orange",
+            "SEV3": "yellow"
+          }
+        },
+        "triggered_at": {
+          "title": "Triggered At",
+          "type": "string",
+          "format": "date-time"
+        },
+        "incident_triage": {
+          "type": "string",
+          "title": "Incident Triage",
+          "format": "markdown"
+        },
+        "incident_owner": {
+          "type": "string",
+          "title": "Incident Owner"
+        },
+        "event_type": {
+          "type": "string",
+          "title": "Event Type",
+          "enum": [
+            "500 Error",
+            "OOM"
+          ],
+          "enumColors": {
+            "500 Error": "red",
+            "OOM": "orange"
+          }
+        },
+        "remediation_plan": {
+          "type": "string",
+          "format": "markdown",
+          "title": "Remediation Plan"
+        }
+      },
+      "required": [
+        "event_type"
+      ]
+    },
+    "mirrorProperties": {},
+    "calculationProperties": {},
+    "aggregationProperties": {},
+    "relations": {
+      "affected_service": {
+        "title": "Affected Service",
+        "target": "service",
+        "required": false,
+        "many": false
+      }
+    }
+  }

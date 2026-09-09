@@ -1,0 +1,16 @@
+{
+  "identifier": "pr-repo-notifications-worker-618",
+  "title": "Fix webhook timeout handling for provider callbacks",
+  "properties": {
+    "status": "closed",
+    "closedAt": "2026-04-22T18:47:54Z",
+    "updatedAt": "2026-04-22T17:57:54Z",
+    "mergedAt": "2026-04-22T19:07:54Z",
+    "createdAt": "2026-04-22T17:07:54Z",
+    "link": "https://github.com/retailnova/repo-notifications-worker/pull/618",
+    "prNumber": 618
+  },
+  "relations": {
+    "repository": "repo-notifications-worker"
+  }
+}
